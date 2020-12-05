@@ -146,8 +146,8 @@ exports.parseColor = function(val) {
     match = val.match(rgbare);
 
     if (match !== null) {
-        const normalizeAlpha = function (a) { return '0.' + a.split('.')[1]; };
-        const fixedMatch = match.slice(1).map(function (e, i) {
+        var normalizeAlpha = function (a) { return '0.' + a.split('.')[1]; };
+        var fixedMatch = match.slice(1).map(function (e, i) {
             return (i === 3) ? normalizeAlpha(e) : e;
         });
         retval = 'rgba(' + fixedMatch.join(',') + ')';
